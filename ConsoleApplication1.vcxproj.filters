@@ -47,9 +47,6 @@
     <ClInclude Include="config.h">
       <Filter>Archivos de origen</Filter>
     </ClInclude>
-    <ClInclude Include="gtaSanAndreas.h">
-      <Filter>Archivos de origen</Filter>
-    </ClInclude>
     <ClInclude Include="money.h">
       <Filter>Archivos de origen</Filter>
     </ClInclude>
@@ -60,6 +57,9 @@
       <Filter>Archivos de origen</Filter>
     </ClInclude>
     <ClInclude Include="position.h">
+      <Filter>Archivos de origen</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
       <Filter>Archivos de origen</Filter>
     </ClInclude>
   </ItemGroup>

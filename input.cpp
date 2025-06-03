@@ -1,4 +1,4 @@
-#include "gtaSanAndreas.h"
+#include "main.h"
 #include <windows.h>
 
 void GTASanAndreas::processInput()

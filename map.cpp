@@ -1,4 +1,4 @@
-#include "gtaSanAndreas.h"
+#include "main.h"
 
 void GTASanAndreas::initializeMap()
 {

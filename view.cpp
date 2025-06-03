@@ -1,16 +1,16 @@
-#include "gtaSanAndreas.h"
+#include "main.h"
 #include <iostream>
 
 void GTASanAndreas::showView()
 {
-    system("cls");  
+    system("cls");
 
     std::cout << "                 GTA SAN ANDREAS" << std::endl;
 
     
     map[player.previousPosition.y][player.previousPosition.x] = ' ';
 
-    //dibuja el dinero
+    // Dibuja el dinero
     Money* Money = money;
     while (Money != nullptr)
     {
@@ -18,25 +18,43 @@ void GTASanAndreas::showView()
         Money = Money->next;
     }
 
-    //dibuja los coches
+    // Dibuja los coches del sistema
     carSystem.drawCarsOnMap(map);
 
-    //dibuja el coche
+    // Dibuja el coche controlado o el jugador
     if (controlledCar != nullptr)
     {
         map[controlledCar->position.y][controlledCar->position.x] = 'C';
     }
     else
     {
-       
         map[player.position.y][player.position.x] = player.direction;
     }
 
+    // Dibuja a los peatones, incluyendo Big Smoke
+    for (int i = 0; i < pedestriansCount; i++)
+    {
+        if (pedestrians[i].alive)
+        {
+            char symbol = pedestrians[i].isBigSmoke ? 'B' : 'P';
+            map[pedestrians[i].position.y][pedestrians[i].position.x] = symbol;
+        }
+    }
 
-    int viewX = player.position.x - viewWidth / 2;
-    int viewY = player.position.y - viewHeight / 2;
+    // Determina la posicion actual para centrar la vista
+    Position currentPosition;
+    if (controlledCar != nullptr)
+    {
+        currentPosition = controlledCar->position;
+    }
+    else
+    {
+        currentPosition = player.position;
+    }
 
-    
+    int viewX = currentPosition.x - viewWidth / 2;
+    int viewY = currentPosition.y - viewHeight / 2;
+
     if (viewX < 0)
     {
         viewX = 0;
@@ -64,7 +82,7 @@ void GTASanAndreas::showView()
         std::cout << '\n';
     }
 
-   
+
     std::cout << "\nCJ Health: [";
     int currentLife;
     if (player.life < 0)
@@ -86,10 +104,11 @@ void GTASanAndreas::showView()
         maxLife = config.cjLife;
     }
 
-    float lifeRatio = static_cast<float>(currentLife) / maxLife;   
-    int lifeBars = static_cast<int>(20 * lifeRatio);               
 
-    
+    float lifeRatio = static_cast<float>(currentLife) / maxLife;
+
+    int lifeBars = static_cast<int>(20 * lifeRatio);
+
     if (lifeBars < 0)
     {
         lifeBars = 0;
@@ -99,34 +118,41 @@ void GTASanAndreas::showView()
         lifeBars = 20;
     }
 
-    //vida Personaje
     for (int i = 0; i < 20; i++)
     {
-        if (i < lifeBars) 
-        {
-            std::cout << '#';
-        }
-        else
-        {
-            std::cout << '-';
-        }
+        std::cout << (i < lifeBars ? '#' : '-');
     }
 
-    
-    std::cout << "] " << currentLife << "/" << maxLife;
-    std::cout << " | Money: $" << player.money;
-    std::cout << " | Money to SAN FRANCISCO: $" << config.sanFierroToll;
-    std::cout << " | Money to  LV: $" << config.lasVenturasToll << std::endl;
+    std::cout << "] " << currentLife << "/" << maxLife << std::endl;
+    std::cout << " | Money: $" << player.money << std::endl;
+    std::cout << " | Money to SAN FIERRO: $" << config.sanFierroToll << std::endl;
+    std::cout << " | Money to  LAS VENTURAS: $" << config.lasVenturasToll << std::endl;
 
-    //si el jugador esta en un coche
+    // Informar si estas en un coche
     if (controlledCar != nullptr)
     {
         std::cout << "In car (WASD to move, E to exit)" << std::endl;
     }
 
-
+    // Limpia la posicion del jugador si no esta en coche
     if (controlledCar == nullptr)
     {
         map[player.position.y][player.position.x] = ' ';
     }
+
+    // Detecta si Big Smoke está vivo
+    bool bigSmokeAlive = false;
+    Position bigSmokePos;
+
+    for (int i = 0; i < pedestriansCount; i++)
+    {
+        if (pedestrians[i].isBigSmoke && pedestrians[i].alive)
+        {
+            bigSmokeAlive = true;
+            bigSmokePos = pedestrians[i].position;
+            break;
+        }
+    }
+
+    
 }

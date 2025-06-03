@@ -139,7 +139,7 @@
   <ItemGroup>
     <ClInclude Include="cars.h" />
     <ClInclude Include="config.h" />
-    <ClInclude Include="gtaSanAndreas.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="money.h" />
     <ClInclude Include="pedestrians.h" />
     <ClInclude Include="player.h" />

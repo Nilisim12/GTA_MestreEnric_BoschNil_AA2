@@ -11,5 +11,6 @@ public:
     int life;               
     bool isAggressive;      
     int attackPower;        
-    float attackCooldown;   
+    float attackCooldown; 
+    bool isBigSmoke;
 };
