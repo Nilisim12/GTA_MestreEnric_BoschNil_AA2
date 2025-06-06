@@ -1,11 +1,12 @@
 ﻿  config.cpp
   input.cpp
   main.cpp
-C:\Users\nilbo\Desktop\Projecte\GTA_MestreEnric_BoschNil_AA2\GTA_MestreEnric_BoschNil_AA2\main.cpp(17,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   map.cpp
+C:\Users\nilbo\Desktop\Projecte\GTA_MestreEnric_BoschNil_AA2\GTA_MestreEnric_BoschNil_AA2\main.cpp(17,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   pedestrians.cpp
-C:\Users\nilbo\Desktop\Projecte\GTA_MestreEnric_BoschNil_AA2\GTA_MestreEnric_BoschNil_AA2\pedestrians.cpp(141,45): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\nilbo\Desktop\Projecte\GTA_MestreEnric_BoschNil_AA2\GTA_MestreEnric_BoschNil_AA2\pedestrians.cpp(164,45): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   player.cpp
+C:\Users\nilbo\Desktop\Projecte\GTA_MestreEnric_BoschNil_AA2\GTA_MestreEnric_BoschNil_AA2\player.cpp(83,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   view.cpp
   Generando código...
   LINK : no se encontró C:\Users\nilbo\Desktop\Projecte\GTA_MestreEnric_BoschNil_AA2\GTA_MestreEnric_BoschNil_AA2\x64\Debug\ConsoleApplication1.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
